@@ -21,4 +21,9 @@ public class physicsscript : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.UpArrow)) 
         rb.AddExplosionForce (2000, transform.position + new Vector3 (0, -1, 0), 1);
     }
+
+    private void OnCollisionEnter(Collision collision)
+    {
+        print(collision.gameObject.name);
+    }
 }
