@@ -7,11 +7,11 @@ public class movehero : MonoBehaviour
 {
     Rigidbody rb;
     Animator animator;
-    GameObject snowballCloneTemplate;
+    public GameObject snowballCloneTemplate;
     // Start is called before the first frame update
     void Start()
     {
-        //     animator = GetComponent<Animator>();
+             animator = GetComponent<Animator>();
         if (animator == null)
             print("could not find animator component");
 
@@ -23,7 +23,7 @@ public class movehero : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        animator.SetBool("is running" , false);
+        animator.SetBool("IsRunning" , false);
 
         if (Input.GetMouseButtonDown(0))
         {
@@ -33,8 +33,11 @@ public class movehero : MonoBehaviour
             myNewSnowball.throwSnowball(transform);
         }
 
-        if (Input.GetKey(KeyCode.W))   
-        transform.position += transform.forward * Time.deltaTime;
+        if (Input.GetKey(KeyCode.W))
+        {
+            transform.position += transform.forward * Time.deltaTime;
+            animator.SetBool("IsRunning", true);
+        }
 
         if (Input.GetKey(KeyCode.A))
             transform.Rotate(Vector3.up, 30 * Time.deltaTime);

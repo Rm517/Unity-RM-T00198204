@@ -11,13 +11,13 @@ public class footballScript : MonoBehaviour
     internal void Kick()
     {
         print("ouch");
-        //rb.AddExplosionForce(500, transform.position) + new Vector3(0, -1, -1), 2);
+        rb.AddExplosionForce(500, transform.position+ new Vector3(0, -1, -1), 2);
     }
 
     // Start is called before the first frame update
     void Start()
     {
-        
+        rb = GetComponent<Rigidbody>();
     }
 
     // Update is called once per frame
