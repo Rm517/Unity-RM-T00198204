@@ -8,7 +8,14 @@ public class snowballScript : MonoBehaviour
     Rigidbody rb;
     internal void throwSnowball(Transform thrower)
     {
-     //   rb.AddExplosionForce(5000)
+        rb = GetComponent<Rigidbody>();
+
+        if (rb != null)
+            print("found rigid body");
+
+        else print("could not find rigid body");
+
+        rb.AddExplosionForce(500, thrower.position, 3);
     }
 
     // Start is called before the first frame update

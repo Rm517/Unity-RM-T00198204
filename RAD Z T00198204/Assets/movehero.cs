@@ -11,15 +11,19 @@ public class movehero : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-   //     animator = GetComponent<Animator>();
-        Rigidbody rb;
+        //     animator = GetComponent<Animator>();
+        if (animator == null)
+            print("could not find animator component");
+
+        else
+            print("animator component found");
         
     }
 
     // Update is called once per frame
     void Update()
     {
-       // animator.SetBool("is running" , false);
+        animator.SetBool("is running" , false);
 
         if (Input.GetMouseButtonDown(0))
         {
@@ -46,8 +50,11 @@ public class movehero : MonoBehaviour
     private void OnCollisionEnter(Collision collision)
     {
         print(collision.gameObject.name);
+       
+        
         //collision.gameObject.transform.position += Vector3.forward;
-       footballScript myFootball = collision.gameObject.GetComponent<footballScript>();
+       
+        footballScript myFootball = collision.gameObject.GetComponent<footballScript>();
        if (myFootball != null)
        {
            myFootball.Kick();

@@ -5,9 +5,13 @@ using UnityEngine;
 
 public class footballScript : MonoBehaviour
 {
+
+    Rigidbody rb;
+
     internal void Kick()
     {
         print("ouch");
+        //rb.AddExplosionForce(500, transform.position) + new Vector3(0, -1, -1), 2);
     }
 
     // Start is called before the first frame update
